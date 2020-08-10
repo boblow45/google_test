@@ -13,4 +13,17 @@ TEST(BinSearchTests, binary_search) {
 	uint32_t result = binary_search(arr, 0, n - 1, x);
 
 	EXPECT_EQ(3, result);
+
+	x = 20;
+	result = binary_search(arr, 0, n - 1, x);
+	EXPECT_EQ(-1, result);
+
+	x = 1;
+	result = binary_search(arr, 0, n - 1, x);
+	EXPECT_EQ(-1, result);
+
+	x = 3;
+	n = 3;
+	result = binary_search(arr, 0, n - 1, x);
+	EXPECT_EQ(1, result);
 }

@@ -61,12 +61,16 @@ include_directories (
 set(Headers
     "./include/example.h"
     "./include/binary_search.h"
+    "./include/circular_buffer.h"
+    "./include/linked_list.h"
 )
 
 # Add indiviual source files
 set(Sources
     "./source/example.c"
     "./source/binary_search.c"
+    "./source/circular_buffer.c"
+    "./source/linked_list.c"
 )
 
 # Build the code as a static lib, this is done so google test can link against the code 
@@ -75,4 +79,5 @@ add_library(${This} STATIC ${Sources} ${Headers})
 # Add the test directory as a subdirectory. This directory will contain another cmake file
 # which will build the tests 
 enable_testing()
+add_custom_target(check COMMAND ${CMAKE_CTEST_COMMAND} --verbose)
 add_subdirectory(test)

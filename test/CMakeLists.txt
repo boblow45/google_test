@@ -12,6 +12,8 @@ set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 set(Sources
     "./unit/ExampleTests.cpp"
     "./unit/BinSearchTests.cpp"
+    "./unit/CirBuffTests.cpp"
+    "./unit/LinkedListTests.cpp"
     "./main.cpp"
 )
 
