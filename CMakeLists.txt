@@ -63,7 +63,10 @@ set(Headers
     "./include/binary_search.h"
     "./include/circular_buffer.h"
     "./include/linked_list.h"
-)
+    "./include/stack.h"
+    "./include/list.hpp"
+    )
+    
 
 # Add indiviual source files
 set(Sources
@@ -71,6 +74,8 @@ set(Sources
     "./source/binary_search.c"
     "./source/circular_buffer.c"
     "./source/linked_list.c"
+    "./source/stack.c"
+    "./source/list.cpp"
 )
 
 # Build the code as a static lib, this is done so google test can link against the code 
@@ -81,3 +86,12 @@ add_library(${This} STATIC ${Sources} ${Headers})
 enable_testing()
 add_custom_target(check COMMAND ${CMAKE_CTEST_COMMAND} --verbose)
 add_subdirectory(test)
+
+
+# Adding something we can run - Output name matches target name
+add_executable("${This}EXE" "./source/main.cpp")
+
+
+ADD_CUSTOM_TARGET(run COMMAND "./${This}EXE"
+  COMMENT "Run with ${CMAKE_BUILD_TYPE} configuration"
+  )
